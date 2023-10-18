@@ -1,4 +1,3 @@
-
 import 'package:english_app/Screen/login.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +24,9 @@ class Register extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 40, left: 20),
+                padding: EdgeInsets.only(top: 40, left: 30),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Happy English',
@@ -58,10 +57,10 @@ class Register extends StatelessWidget {
               ),
 
               // khung trắng
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               Container(
                 width: screenWidth,
-                height: 500,
+                height: 620,
                 padding: const EdgeInsets.all(16),
                 decoration: const BoxDecoration(
                   color: Colors.white,
@@ -76,9 +75,10 @@ class Register extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 25),
                       child: Text(
-                        'Welcome Back',
+                        'Create Account',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -89,7 +89,7 @@ class Register extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        'Hello there, sign in continue',
+                        'Hello there, fill in below to create an account',
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.grey,
@@ -102,9 +102,8 @@ class Register extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: const Row(
-                        
                         children: [
-                          Icon(Icons.person, color: Colors.blue, size: 20),
+                          Icon(Icons.email, color: Colors.blue, size: 20),
                           SizedBox(width: 10),
                           Text(
                             'Email',
@@ -130,17 +129,16 @@ class Register extends StatelessWidget {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 20),
                         ),
                       ),
                     ),
 
                     const SizedBox(height: 20,),
-
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: const Row(
-                        
                         children: [
                           Icon(Icons.password, color: Colors.blue, size: 20),
                           SizedBox(width: 10),
@@ -168,35 +166,90 @@ class Register extends StatelessWidget {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 20),
                         ),
                       ),
                     ),
 
-                    // quên pass
-                    const SizedBox(height: 20), 
-                    Padding(
+                    const SizedBox(height: 20,),
+                    Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                      child: const Row(
                         children: [
-                          TextButton(
-                            onPressed: () {
-                              // Xử lý sự kiện khi nút Forgot Password được nhấn
-                            },
-                            child: const Text(
-                              'Forgot Password',
-                              style: TextStyle(
-                                color: Colors.purple,
-                              ),
+                          Icon(Icons.person_2, color: Colors.blue, size: 20),
+                          SizedBox(width: 10),
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 52, 2, 248),
                             ),
                           ),
                         ],
                       ),
                     ),
+                    const SizedBox(height: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Enter your name',
+                          hintStyle: const TextStyle(
+                            color: Colors.grey,
+                          ),
+                          filled: true,
+                          fillColor: Colors.grey[200],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 20),
+                        ),
+                      ),
+                    ),
 
+                    const SizedBox(height: 20,),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Row(
+                        children: [
+                          Icon(Icons.phone, color: Colors.blue, size: 20),
+                          SizedBox(width: 10),
+                          Text(
+                            'Phone Number',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 52, 2, 248),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Enter your phone number',
+                          hintStyle: const TextStyle(
+                            color: Colors.grey,
+                          ),
+                          filled: true,
+                          fillColor: Colors.grey[200],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 20),
+                        ),
+                      ),
+                    ),
+                    
                     // nút sign in
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Expanded(
                       child: Align(
                         alignment: Alignment.center,
@@ -205,15 +258,16 @@ class Register extends StatelessWidget {
                             // Xử lý sự kiện khi nút Sign In được nhấn
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 203, 147, 204),
+                            backgroundColor: const Color.fromARGB(255, 203, 147, 204),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
                           child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 50, vertical: 10),
                             child: Text(
-                              'Sign Un',
+                              'Sign Up',
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -224,7 +278,7 @@ class Register extends StatelessWidget {
                       ),
                     ),
 
-                    // dòng cho sign up 
+                    // dòng cho sign up
                     const SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -237,9 +291,13 @@ class Register extends StatelessWidget {
                               color: Colors.grey,
                             ),
                           ),
+                          const SizedBox(width: 5),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Login()));
                             },
                             child: const Text(
                               'Sign In',
@@ -262,8 +320,3 @@ class Register extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

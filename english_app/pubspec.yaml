@@ -50,6 +50,13 @@ flutter:
     - assets/logo.png
     - assets/amico.png
     - assets/rocket.png
+    - assets/pana.png
+    - assets/avatar.png
+    - assets/imgHome.png
+    - assets/family.png
+    - assets/foods.png
+    - assets/sports.png
+    - assets/IT.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -64,7 +64,13 @@ class Hello3 extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const Create()),
                   );
                 },
-                child: Padding(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 125, 185, 233),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   child: Text(
                     'Start',
@@ -72,12 +78,6 @@ class Hello3 extends StatelessWidget {
                       fontSize: 20,
                       color: Colors.white,
                     ),
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: const Color.fromARGB(255, 125, 185, 233),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
               ),

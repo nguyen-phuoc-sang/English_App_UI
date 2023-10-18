@@ -47,7 +47,7 @@ class Create extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: const Color.fromARGB(255, 125, 185, 233),
+                  backgroundColor: const Color.fromARGB(255, 125, 185, 233),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),

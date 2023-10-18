@@ -1,3 +1,5 @@
+import 'package:english_app/Screen/Home.dart';
+import 'package:english_app/Screen/create.dart';
 import 'package:english_app/Screen/register.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +36,10 @@ class Login extends StatelessWidget {
                         color: Colors.black,
                       ),
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Create()),
+                        );
                       },
                     ),
                     const Text(
@@ -210,10 +215,10 @@ class Login extends StatelessWidget {
                         alignment: Alignment.center,
                         child: ElevatedButton(
                           onPressed: () {
-                            // Xử lý sự kiện khi nút Sign In được nhấn
+                            Navigator.push(context,MaterialPageRoute(builder: (context) => Home()));
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 203, 147, 204),
+                            backgroundColor: const Color.fromARGB(255, 203, 147, 204),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -261,6 +266,13 @@ class Login extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+              ),
+              const SizedBox(height: 5,),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Image.asset(
+                  'assets/pana.png',
                 ),
               ),
             ],
