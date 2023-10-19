@@ -8,26 +8,27 @@ class Topic extends StatelessWidget {
     {'icon': 'assets/foods.png', 'text': 'Foods'},
     {'icon': 'assets/sports.png', 'text': 'Sports'},
   ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 68, 171, 255), // Màu nền xanh
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(100),
-                  bottomRight: Radius.circular(100),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 68, 171, 255),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(100),
+                    bottomRight: Radius.circular(100),
+                  ),
                 ),
+                height: 100,
               ),
-              height: 150,
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Column(
+              const SizedBox(height: 20),
+              Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text(
@@ -38,18 +39,15 @@ class Topic extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 10), 
+                  const SizedBox(height: 10),
                   Container(
                     width: 50,
                     height: 2,
                     color: Colors.black,
                   ),
-                  const SizedBox(height: 20), 
-
-
-
+                  const SizedBox(height: 20),
                   SizedBox(
-                    height: 500,
+                    height: 400,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       itemCount: itemList.length,
@@ -92,12 +90,10 @@ class Topic extends StatelessWidget {
                       },
                     ),
                   ),
-
-
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:english_app/Screen/login.dart';
-import 'package:flutter/material.dart';
 import 'package:english_app/Screen/profile.dart';
+import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
@@ -11,12 +11,15 @@ class Home extends StatelessWidget {
     {'icon': 'assets/avatar.png', 'text': 'Universe'},
   ];
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Builder(
-          builder: (context) => Column(
+        key: _scaffoldKey,
+        body: SingleChildScrollView(
+          child: Column(
             children: [
               Container(
                 height: 100,
@@ -26,7 +29,7 @@ class Home extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        Scaffold.of(context).openDrawer();
+                        _scaffoldKey.currentState?.openDrawer();
                       },
                       icon: const Icon(Icons.menu),
                     ),
@@ -38,12 +41,10 @@ class Home extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const Profile()),
+                          MaterialPageRoute(builder: (context) => const Profile()),
                         );
                       },
-                      child:
-                          const Image(image: AssetImage('assets/avatar.png')),
+                      child: const Image(image: AssetImage('assets/avatar.png')),
                     ),
                   ],
                 ),
@@ -195,7 +196,6 @@ class Home extends StatelessWidget {
           ),
         ),
 
-        // drawer
         drawer: Drawer(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -208,7 +208,7 @@ class Home extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/IT.png', // Thay đổi đường dẫn hình ảnh
+                      'assets/IT.png',
                       width: 80,
                       height: 80,
                     ),
@@ -247,7 +247,22 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-        
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.topic),
+              label: 'Topic',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications),
+              label: 'Remind',
+            ),
+          ],
+        ),
       ),
     );
   }

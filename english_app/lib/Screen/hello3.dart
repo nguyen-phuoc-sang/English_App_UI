@@ -22,7 +22,6 @@ class Hello3 extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Padding(padding: EdgeInsets.only(top: 200)),
               const Text(
                 'Happy English',
                 style: TextStyle(

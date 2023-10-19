@@ -1,5 +1,5 @@
-import 'package:english_app/Screen/test.dart';
 import 'package:flutter/material.dart';
+import 'package:english_app/Screen/test.dart';
 
 class Vocabulary extends StatelessWidget {
   Vocabulary({Key? key}) : super(key: key);
@@ -7,41 +7,43 @@ class Vocabulary extends StatelessWidget {
   final List<Map<String, dynamic>> itemList = [
     {'E': 'Father', 'phienam': 'ˈfäT͟Hər', 'nghia': 'Ba'},
     {'E': 'Mother', 'phienam': 'ˈməT͟Hər', 'nghia': 'Mẹ'},
+    // ...Thêm dữ liệu khác nếu có
   ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 68, 171, 255), // Màu nền xanh
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(100),
-                  bottomRight: Radius.circular(100),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 68, 171, 255),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(100),
+                    bottomRight: Radius.circular(100),
+                  ),
+                ),
+                height: 150,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 16,
+                      left: 16,
+                      child: IconButton(
+                        icon: const Icon(Icons.arrow_back, color: Colors.black),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              height: 150,
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 16,
-                    left: 16,
-                    child: IconButton(
-                      icon:const Icon(Icons.arrow_back, color: Colors.black),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ),
-                ]
-              )
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Column(
+              const SizedBox(height: 20),
+              Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text(
@@ -52,13 +54,13 @@ class Vocabulary extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 10), 
+                  const SizedBox(height: 10),
                   Container(
                     width: 50,
                     height: 2,
                     color: Colors.black,
                   ),
-                  const SizedBox(height: 20), 
+                  const SizedBox(height: 20),
                   SizedBox(
                     height: 400,
                     child: ListView.builder(
@@ -88,18 +90,15 @@ class Vocabulary extends StatelessWidget {
                             children: [
                               Text(
                                 itemList[index]['E'],
-                                style: const TextStyle(
-                                    fontSize: 25),
+                                style: const TextStyle(fontSize: 25),
                               ),
                               Text(
                                 itemList[index]['phienam'],
-                                style: const TextStyle(
-                                    fontSize: 25),
+                                style: const TextStyle(fontSize: 25),
                               ),
                               Text(
                                 itemList[index]['nghia'],
-                                style: const TextStyle(
-                                    fontSize: 25),
+                                style: const TextStyle(fontSize: 25),
                               ),
                             ],
                           ),
@@ -107,7 +106,7 @@ class Vocabulary extends StatelessWidget {
                       },
                     ),
                   ),
-                  const SizedBox(height: 20), 
+                  const SizedBox(height: 20),
                   Container(
                     width: 150,
                     height: 2,
@@ -126,7 +125,7 @@ class Vocabulary extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      side:const BorderSide(width: 2, color: Colors.black),
+                      side: const BorderSide(width: 2, color: Colors.black),
                     ),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
@@ -139,11 +138,10 @@ class Vocabulary extends StatelessWidget {
                       ),
                     ),
                   ),
-
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class Remind extends StatefulWidget {
@@ -12,26 +11,26 @@ class Remind extends StatefulWidget {
 class _RemindState extends State<Remind> {
   int selectedHours = 1;
   int selectedMinute = 1;
- 
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 68, 171, 255), // Màu nền xanh
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(100),
-                  bottomRight: Radius.circular(100),
-                ),
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 68, 171, 255), // Màu nền xanh
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(100),
+                bottomRight: Radius.circular(100),
               ),
-              height: 150,
             ),
-            const SizedBox(height: 20),
-            Expanded(
+            height: 100,
+          ),
+          const SizedBox(height: 20),
+          Expanded(
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -43,13 +42,13 @@ class _RemindState extends State<Remind> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 10), 
+                  const SizedBox(height: 10),
                   Container(
                     width: 50,
                     height: 2,
                     color: Colors.black,
                   ),
-                  const SizedBox(height: 40), 
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -69,7 +68,6 @@ class _RemindState extends State<Remind> {
                       ),
                       const SizedBox(width: 10),
                       const Text('H      :      '),
-
                       DropdownButton<int>(
                         value: selectedMinute,
                         onChanged: (int? value) {
@@ -99,9 +97,9 @@ class _RemindState extends State<Remind> {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Notification name',
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 100), 
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                         border: OutlineInputBorder(
-                          borderSide: BorderSide.none, 
+                          borderSide: BorderSide.none,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         hintStyle: const TextStyle(fontSize: 25),
@@ -110,16 +108,7 @@ class _RemindState extends State<Remind> {
                       style: const TextStyle(fontSize: 25),
                     ),
                   ),
-
-
-
-                
-
-                  
-
-
-
-                  const SizedBox(height: 20), 
+                  const SizedBox(height: 20),
                   Container(
                     width: 150,
                     height: 2,
@@ -135,7 +124,7 @@ class _RemindState extends State<Remind> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      side:const BorderSide(width: 2, color: Colors.black),
+                      side: const BorderSide(width: 2, color: Colors.black),
                     ),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
@@ -148,12 +137,11 @@ class _RemindState extends State<Remind> {
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

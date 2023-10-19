@@ -22,11 +22,8 @@ class Create extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 75,
-              ),
-              const Image(image: AssetImage('assets/amico.png')),
-              const SizedBox(height: 70),
+              const Image(image: AssetImage('assets/amico.png'), height: 200, width: 200,),
+              const SizedBox(height: 50),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
@@ -66,7 +63,7 @@ class Create extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomRight,
                 child: Image.asset(
-                  'assets/rocket.png',
+                  'assets/rocket.png', height: 220, width: 220,
                 ),
               ),
             ],
