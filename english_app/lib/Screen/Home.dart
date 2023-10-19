@@ -1,9 +1,18 @@
 import 'package:english_app/Screen/login.dart';
 import 'package:english_app/Screen/profile.dart';
+import 'package:english_app/Screen/remind.dart';
+import 'package:english_app/Screen/topic.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
 
   final List<Map<String, dynamic>> itemList = [
     {'icon': 'assets/avatar.png', 'text': 'Chemistry'},
@@ -41,10 +50,12 @@ class Home extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Profile()),
+                          MaterialPageRoute(
+                              builder: (context) => const Profile()),
                         );
                       },
-                      child: const Image(image: AssetImage('assets/avatar.png')),
+                      child:
+                          const Image(image: AssetImage('assets/avatar.png')),
                     ),
                   ],
                 ),
@@ -195,7 +206,6 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-
         drawer: Drawer(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -232,11 +242,18 @@ class Home extends StatelessWidget {
                     children: [
                       const Divider(),
                       ListTile(
-                        leading: const Icon(Icons.exit_to_app, color: Colors.black,),
-                        title: const Text('Log Out', style: TextStyle(fontSize: 20),),
+                        leading: const Icon(
+                          Icons.exit_to_app,
+                          color: Colors.black,
+                        ),
+                        title: const Text(
+                          'Log Out',
+                          style: TextStyle(fontSize: 20),
+                        ),
                         onTap: () {
                           Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) => const Login()),
+                            MaterialPageRoute(
+                                builder: (context) => const Login()),
                           );
                         },
                       ),
@@ -262,6 +279,25 @@ class Home extends StatelessWidget {
               label: 'Remind',
             ),
           ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blueAccent,
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+
+            if (_selectedIndex == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Topic()),
+              );
+            }else if(_selectedIndex == 2){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Remind()),
+              );
+            }
+          },
         ),
       ),
     );

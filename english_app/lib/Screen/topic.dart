@@ -1,7 +1,16 @@
+import 'package:english_app/Screen/Home.dart';
+import 'package:english_app/Screen/remind.dart';
 import 'package:flutter/material.dart';
 
-class Topic extends StatelessWidget {
+class Topic extends StatefulWidget {
   Topic({Key? key}) : super(key: key);
+
+  @override
+  _TopicState createState() => _TopicState();
+}
+
+class _TopicState extends State<Topic> {
+  int _selectedIndex = 1;
 
   final List<Map<String, dynamic>> itemList = [
     {'icon': 'assets/family.png', 'text': 'Family'},
@@ -94,6 +103,41 @@ class Topic extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.topic),
+              label: 'Topic',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications),
+              label: 'Remind',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blueAccent,
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+
+            if (_selectedIndex == 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            }else if(_selectedIndex == 2){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Remind()),
+              );
+            }
+          },
         ),
       ),
     );

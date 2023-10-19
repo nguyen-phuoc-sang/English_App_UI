@@ -1,3 +1,5 @@
+import 'package:english_app/Screen/Home.dart';
+import 'package:english_app/Screen/topic.dart';
 import 'package:flutter/material.dart';
 
 class Remind extends StatefulWidget {
@@ -11,6 +13,7 @@ class Remind extends StatefulWidget {
 class _RemindState extends State<Remind> {
   int selectedHours = 1;
   int selectedMinute = 1;
+  int _selectedIndex = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -142,6 +145,41 @@ class _RemindState extends State<Remind> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.topic),
+            label: 'Topic',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Remind',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blueAccent,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+
+          if (_selectedIndex == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Topic()),
+            );
+          }else if(_selectedIndex == 0){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Home()),
+            );
+          }
+        },
       ),
     );
   }
